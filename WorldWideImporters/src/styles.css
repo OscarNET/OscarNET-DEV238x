@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.default-theme-bgcolor1 {
+    background-color: #2C004F;
+}
+
+.default-theme-bgcolor2 {
+    background-color: #7200AF;
+}
+
+.default-theme-bgcolor3 {
+    background-color: #260043;
+}
+
+.default-theme-bgcolor4 {
+    background-color: #4E2B69;
+}

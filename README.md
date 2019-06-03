@@ -13,8 +13,8 @@ The following requirements have been used for preparing the development environm
 * [Angular CLI](https://cli.angular.io) version 8.0.1 (npm install --global @angular/cli@8.0.1)
 * [jQuery](https://jquery.com) version 3.4.1 (npm install jquery@3.4.1)
 * [Bootstrap](https://getbootstrap.com) version 4.3.1 (npm install bootstrap@4.3.1) + [popper.js](https://popper.js.org) version 1.15.0 (npm install popper.js@1.15.0)
+* [Font Awesome (free version)](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers) version 5.8.2 (npm install @fortawesome/fontawesome-free@5.8.2)
 * [Git](https://git-scm.com) version 2.21.0
-* [TortoiseGit](https://tortoisegit.org) version 2.8.0
 * [Visual Studio Code](https://code.visualstudio.com) version 1.34
 
 # Track Detail
