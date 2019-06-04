@@ -17,6 +17,19 @@ The following requirements have been used for preparing the development environm
 * [Git](https://git-scm.com) version 2.21.0
 * [Visual Studio Code](https://code.visualstudio.com) version 1.34
 
+For building and serving the single-page application of World Wide Importers on port 8080 (http://localhost:8080):
+```
+cd WorldWideImporters
+ng serve --port 8080 --open
+```
+
+**KNOWN ISSUE ~ Could not find module "@angular-devkit/build-angular"**
+
+Install @angular-devkit/build-angular as dev dependency:
+```
+npm install --save-dev @angular-devkit/build-angular
+```
+
 # Track Detail
 * Get started with web development: [DEV237x: Microsoft Professional Program : Front End Web Development](https://courses.edx.org/certificates/8fbce8ead4a844f3969d1567f4657a1e)
 * Create a Basic Web Application: [HTML5.0x: HTML5 and CSS Fundamentals](https://courses.edx.org/certificates/606e534c6f4e492295f897d3407609e6)
