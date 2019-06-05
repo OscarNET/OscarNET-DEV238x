@@ -7,7 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
       World Wide Importers&nbsp;
       <i class="fas fa-cube"></i>
     </a>
@@ -15,16 +15,16 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <!-- rubric65 : User shall see a link to the home page -->
-        <a class="nav-item nav-link active" href="#">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
           <i class="fas fa-home"></i>
           Home
         </a>
         <!-- rubric66 : User shall see a link to the shopping page -->
-        <a class="nav-item nav-link" href="#/shopping">
+        <a class="nav-item nav-link" routerLink="/shopping" routerLinkActive="active">
           <i class="fas fa-shopping-bag"></i>
           Shopping</a>
         <!-- rubric67 : User shall see a link to the cart page -->
-        <a class="nav-item nav-link" href="#/cart">
+        <a class="nav-item nav-link" routerLink="/cart" routerLinkActive="active">
           <i class="fas fa-shopping-cart"></i>
           Cart
         </a>
