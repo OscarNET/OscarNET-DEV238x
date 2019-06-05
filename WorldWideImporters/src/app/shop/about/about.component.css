@@ -1,0 +1,23 @@
+/* rubric63 : About page is visually applealing (score 1-3) */
+
+#aboutAnimation div.container-fluid>img.move-right {
+    animation: linear infinite;
+    animation-name: run;
+    animation-duration: 8s;
+    position: relative;
+    height: 153px;
+    width: 350px;
+}
+
+#aboutUs div.jumbotron {
+    margin-top: 15px;
+}
+
+@keyframes run {
+    0% {
+        left: -60%;
+    }
+    100% {
+        left: 100%;
+    }
+}

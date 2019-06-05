@@ -5,10 +5,7 @@ html {
 
 body {
     margin-bottom: 20px;
-}
-
-body>.container {
-    padding: 60px 15px 0;
+    padding-top: 75px;
 }
 
 footer {
