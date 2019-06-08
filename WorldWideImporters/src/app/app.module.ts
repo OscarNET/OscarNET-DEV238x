@@ -13,6 +13,9 @@ import { ContactComponent } from './shop/contact/contact.component';
 import { HomeComponent } from './shop/home/home.component';
 import { ShoppingComponent } from './shop/shopping/shopping.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { AzureDataService } from './services/azure-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,7 @@ import { ShoppingComponent } from './shop/shopping/shopping.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       //rubric64 : The about page is accessible at http://localhost:8080/#/about
       { path: "about", component: AboutComponent },
@@ -45,7 +49,7 @@ import { ShoppingComponent } from './shop/shopping/shopping.component';
       { path: "**", redirectTo: "" },
     ], { useHash: true })
   ],
-  providers: [],
+  providers: [AzureDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
