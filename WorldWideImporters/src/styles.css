@@ -1,10 +1,12 @@
+/* rubric79 : CSS used for site styling. No inline CSS permitted and no styling or HTML elements directly */
+
 html {
     min-height: 100%;
     position: relative;
 }
 
 body {
-    margin-bottom: 20px;
+    padding-bottom: 55px;
     padding-top: 75px;
 }
 
@@ -30,4 +32,36 @@ footer {
 
 .default-theme-bgcolor4 {
     background-color: #4E2B69;
+}
+
+#storeCarousel {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card-img {
+    margin-bottom: 50px;
+    max-height: 435px;
+    max-width: 295px;
+    vertical-align: middle;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%237200AF' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    border-color: #7200AF;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    padding-left: 35px;
+    padding-top: 35px;
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%237200AF' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+    border-color: #7200AF;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    padding-left: 35px;
+    padding-top: 35px;
 }

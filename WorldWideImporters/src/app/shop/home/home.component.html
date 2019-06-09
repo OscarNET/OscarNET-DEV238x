@@ -1,0 +1,95 @@
+<div *ngIf="carouselItems; else loadingBlock">
+
+    <!-- rubric04 : The user should see some text welcoming them to the website -->
+    <div class="content text-center">
+        <h3>Welcome to World Wide Importers</h3>
+        <p>Save your valuable time and check out our quick and easy Online Shopping Service.</p>
+    </div>
+
+    <!-- rubric05 : The user should see a button labeled "Shop All" -->
+    <div class="content text-center">
+        <!-- rubric12 : It the user clicks on the "Shop All" button, the user should be taken to the shopping page -->
+        <a class="btn btn-primary" routerLink="/shopping" role="button">Shop All</a>
+    </div>
+
+    <!-- ##### Carousel ##### -->
+
+    <!-- rubric01 : The user should see a product carousel that contains at least 3 slides of products,
+                    with each slide having between 1 and 4 product images -->
+    <!-- rubric11 : Whenever the product carousel changes it slide, it sould do in an animated way -->
+    <div id="storeCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+
+        <!-- ##### Carousel indicators ##### -->
+
+        <ul class="carousel-indicators">
+            <li data-target="#storeCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#storeCarousel" data-slide-to="1"></li>
+            <li data-target="#storeCarousel" data-slide-to="2"></li>
+        </ul>
+
+        <!-- ##### Carousel slides ##### -->
+
+        <div class="carousel-inner" role="listbox">
+
+            <!-- ##### Carousel first slide ##### -->
+
+            <div class="carousel-item active">
+                <div class="card-deck">
+                    <!-- rubric80 : Used jQuery or Angular for data binding -->
+                    <div *ngFor="let item of carouselItems.slice(0,3)" class="card bg-info">
+                        <div class="card-body text-center">
+                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h4 class="card-text">{{item.name}}</h4>
+                        </div>
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ##### Carousel second slide ##### -->
+
+            <div class="carousel-item">
+                <div class="card-deck">
+                    <!-- rubric80 : Used jQuery or Angular for data binding -->
+                    <div *ngFor="let item of carouselItems.slice(3,6)" class="card bg-info">
+                        <div class="card-body text-center">
+                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h4 class="card-text">{{item.name}}</h4>
+                        </div>
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ##### Carousel third slide  ##### -->
+
+            <div class="carousel-item">
+                <div class="card-deck">
+                    <!-- rubric80 : Used jQuery or Angular for data binding -->
+                    <div *ngFor="let item of carouselItems.slice(6,9)" class="card bg-info">
+                        <div class="card-body text-center">
+                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h4 class="card-text">{{item.name}}</h4>
+                        </div>
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ##### Carousel left and right controls ##### -->
+
+        <!-- rubric02 : The user should see a button that resembles a left arrow key to the left of the product carousel -->
+        <!-- rubric08 : Clicking on the left arrow should move the product carousel one slide back -->
+        <a class="carousel-control-prev" href="#storeCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+
+        <!-- rubric03 : The user should see a button that resembles a right arrow key to the right of the product carousel -->
+        <!-- rubric07 : Clicking on the right arrow should move the product carousel one slide forward -->
+        <a class="carousel-control-next" href="#storeCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <ng-template #loadingBlock>Loading...</ng-template>
