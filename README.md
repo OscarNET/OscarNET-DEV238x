@@ -7,6 +7,11 @@ WorldWideImporters is starting a small grocery segment to offer online shopping 
 
 The site will consist of a common layout with navigation, header, and footer sections to provide a common look and feel while offering a shopping experience that is easy to use and intuitive.
 
+# ScreenShots
+![alt text](https://github.com/OscarNET/OscarNET-DEV238x/blob/master/ScreenShot1.png "ScreenShot1")
+![alt text](https://github.com/OscarNET/OscarNET-DEV238x/blob/master/ScreenShot2.png "ScreenShot2")
+![alt text](https://github.com/OscarNET/OscarNET-DEV238x/blob/master/ScreenShot3.png "ScreenShot3")
+
 # Getting Started
 The following requirements have been used for preparing the development environment (Windows-x64):
 * [Node.js](https://nodejs.org) version 10.16.0 LTS 'Dubnium' (with npm v6.9.0).
