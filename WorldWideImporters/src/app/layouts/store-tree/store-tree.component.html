@@ -1,0 +1,17 @@
+<!-- rubric19 : The user shall see a category menu that displays all of the available shopping categories -->
+<ul *ngIf="categories; else loadingBlock">
+  <li *ngFor="let category of categories">
+    <span (click)="selectCategory(category)"
+      [ngClass]="{'selectedCategory': category.category == selectedCategoryName}"><b>&diams;</b>
+      {{category.category}}</span>
+    <ul *ngIf="category.showSubcategories">
+      <li *ngFor="let subcategory of category.subcategories">
+        <span (click)="selectSubcategory(subcategory)"
+          [ngClass]="{'selectedSubcategory': subcategory.name == selectedSubcategoryName}"><b>&diams;</b>
+          {{subcategory.name}}</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ng-template #loadingBlock>Loading...</ng-template>

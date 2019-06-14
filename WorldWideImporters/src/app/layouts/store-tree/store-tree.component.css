@@ -1,0 +1,15 @@
+span.selectedCategory {
+    color: yellow;
+}
+
+span.selectedSubcategory {
+    color: yellowgreen;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+ul li span {
+    cursor: pointer;
+}

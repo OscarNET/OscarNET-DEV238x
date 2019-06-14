@@ -15,6 +15,7 @@ import { ShoppingComponent } from './shop/shopping/shopping.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AzureDataService } from './services/azure-data.service';
+import { StoreTreeComponent } from './layouts/store-tree/store-tree.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AzureDataService } from './services/azure-data.service';
     CartComponent,
     ContactComponent,
     HomeComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    StoreTreeComponent
   ],
   imports: [
     BrowserModule,

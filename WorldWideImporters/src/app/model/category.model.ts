@@ -7,5 +7,6 @@ import { Subcategory } from './subcategory.model';
 
 export interface Category {
     category: string;
+    showSubcategories: boolean;
     subcategories: Subcategory[];
 }
