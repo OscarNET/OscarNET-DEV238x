@@ -1,3 +1,39 @@
-<p>
-  product works!
-</p>
+<div *ngIf="selectedProduct; else loadingBlock" class="container-fluid">
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="card bg-info">
+        <!-- rubric36 : The user should an image of the selected product -->
+        <img class="card-img d-block img-fluid" src="{{selectedProduct.imagelink}}" alt="{{selectedProduct.name}}" />
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="card bg-info">
+        <div class="card-body text-center">
+          <!-- rubric35 : The user should the name of the selected product -->
+          <h2 class="bg-dark text-info card-text">{{selectedProduct.name}}</h2>
+          <!-- rubric37 : The user should see the rating of the selected product -->
+          <h4>Rating: {{selectedProduct.rating}}/5</h4>
+          <!-- rubric38 : The user should see the number of items in stock of the selected product -->
+          <h4>Stock: {{selectedProduct.stock}}</h4>
+          <!-- rubric39 : The user should see the price of the selected product -->
+          <h4>Price: <span class="bg-danger text-warning">&nbsp;${{selectedProduct.price}}&nbsp;</span></h4>
+          <!-- rubric40 : The user should see the description of the selected product -->
+          <h6>{{selectedProduct.description}}</h6>
+          <form #quantityForm="ngForm" (ngSubmit)="addToCart()">
+            <!-- rubric42 : The user should see an input field labeled "Qty" -->
+            Qty: <input name="quantity" min="1" max="99" minlength="1" maxlength="2" [(ngModel)]="quantity" required
+              pattern="^[1-9]+$" />
+            <!-- rubric41 : The user should see a button labeled "Add" -->
+            <button class="btn btn-primary addToCart" type="submit" [disabled]="!quantityForm.valid">Add</button>
+          </form>
+          <!-- rubric43 : The user should see a button labeled "Back" -->
+          <!-- rubric45 : Clicking the "Back" button should take the user back to where they came from,
+                          whether it was the Shopping page or the Product page -->
+          <a class="btn btn-secondary back" href="javascript:void(0)" (click)="goBack()" role="button">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingBlock>Loading...</ng-template>

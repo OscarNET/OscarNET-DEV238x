@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -33,6 +34,7 @@ import { AzureDataService } from './services/azure-data.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       //rubric64 : The about page is accessible at http://localhost:8080/#/about
