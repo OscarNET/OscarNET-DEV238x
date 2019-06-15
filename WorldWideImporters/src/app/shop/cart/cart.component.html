@@ -1,0 +1,90 @@
+<div *ngIf="cartContent; else loadingBlock" class="container-fluid">
+    <div class="row">
+        <div class="col bg-info text-center">
+            <h5>Image</h5>
+        </div>
+        <div class="col bg-info text-center">
+            <h5>Name</h5>
+        </div>
+        <div class="col bg-info text-center">
+            <h5>Unit Price</h5>
+        </div>
+        <div class="col bg-info text-center">
+            <h5>Qty</h5>
+        </div>
+        <div class="col bg-info text-center">
+            <h5>Cost</h5>
+        </div>
+        <div class="col bg-info text-center">
+            <h5>Remove</h5>
+        </div>
+        <div class="col-3">
+            <!-- ##### Enter Shipping Details ##### -->
+            <div class="row">
+                <div class="col bg-info text-center">
+                    <h5>Enter Shipping Details</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-info text-mutext text-center">
+                    <form>
+                        <input name="name" placeholder="Name" />
+                        <input name="address" placeholder="Address" />
+                        <input name="city" placeholder="City" />
+                        <input name="phoneNumber" placeholder="Phone Number" />
+                    </form>
+                </div>
+            </div>
+            <!-- ##### Cart Summary ##### -->
+            <div class="row">
+                <div class="col bg-info text-center">
+                    <h5>Cart Summary</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-dark text-muted text-right">
+                    <h5>Subtotal :</h5>
+                </div>
+                <div class="col bg-dark text-info text-left">
+                    <h5>$99.99</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-dark text-muted text-right">
+                    <h5>Shipping :</h5>
+                </div>
+                <div class="col bg-dark text-info text-left">
+                    <h5>FREE</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-dark text-muted text-right">
+                    <h5>Tax (10%) :</h5>
+                </div>
+                <div class="col bg-dark text-info text-left">
+                    <h5>$99.99</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col bg-dark text-muted text-right">
+                    <h5>Total :</h5>
+                </div>
+                <div class="col bg-dark text-left">
+                    <h4>
+                        <span class="bg-danger text-warning">
+                            &nbsp;$99.99&nbsp;
+                        </span>
+                    </h4>
+                </div>
+            </div>
+            <!-- ##### Checkout ##### -->
+            <div class="row">
+                <div class="col bg-dark text-center checkout">
+                    <button class="btn btn-primary">Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #loadingBlock>Loading...</ng-template>
