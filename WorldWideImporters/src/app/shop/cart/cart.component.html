@@ -1,87 +1,137 @@
-<div *ngIf="cartContent; else loadingBlock" class="container-fluid">
+<div *ngIf="cartItems; else loadingBlock" class="container-fluid">
     <div class="row">
-        <div class="col bg-info text-center">
-            <h5>Image</h5>
+        <div class="col-12 col-sm-12 col-md-8">
+            <!-- rubric47 : The user should a table displaying the product image, name, unit price,
+                            quantity as an input field, total cost, and a remove button for each product in the shopping cart -->
+            <div class="card bg-info">
+                <div class="row">
+                    <div class="col text-center">
+                        <h6>Image</h6>
+                    </div>
+                    <div class="col">
+                        <h6>Name</h6>
+                    </div>
+                    <div class="col">
+                        <h6>Unit Price</h6>
+                    </div>
+                    <div class="col text-center">
+                        <h6>Qty</h6>
+                    </div>
+                    <div class="col">
+                        <h6>Cost</h6>
+                    </div>
+                    <div class="col text-center">
+                        <h6>Remove</h6>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let cartItem of cartItems">
+                    <div class="col text-center">
+                        <hr />
+                        <img class="thumbnail" src="{{cartItem.item.imagelink}}" alt="{{cartItem.item.name}}" />
+                    </div>
+                    <div class="col">
+                        <hr />
+                        <h6>{{cartItem.item.name}}</h6>
+                    </div>
+                    <div class="col">
+                        <hr />
+                        <h6>${{cartItem.item.price | number:'1.2-2'}}</h6>
+                    </div>
+                    <div class="col text-center">
+                        <hr />
+                        <h6>{{cartItem.quantity}}</h6>
+                    </div>
+                    <div class="col">
+                        <hr />
+                        <h6>${{cartItem.cost | number:'1.2-2'}}</h6>
+                    </div>
+                    <div class="col text-center">
+                        <hr />
+                        <!-- rubric54 : The remove button should remove an item from the shopping cart. -->
+                        <button class="btn btn-danger text-warning" (click)="removeItem(cartItem.item.name)">X</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col bg-info text-center">
-            <h5>Name</h5>
-        </div>
-        <div class="col bg-info text-center">
-            <h5>Unit Price</h5>
-        </div>
-        <div class="col bg-info text-center">
-            <h5>Qty</h5>
-        </div>
-        <div class="col bg-info text-center">
-            <h5>Cost</h5>
-        </div>
-        <div class="col bg-info text-center">
-            <h5>Remove</h5>
-        </div>
-        <div class="col-3">
-            <!-- ##### Enter Shipping Details ##### -->
-            <div class="row">
-                <div class="col bg-info text-center">
-                    <h5>Enter Shipping Details</h5>
+        <div class="col-12 col-sm-12 col-md-4">
+            <div class="card bg-info">
+
+                <!-- ##### Enter Shipping Details ##### -->
+
+                <!-- rubric48 : The user should see a form labeled "Enter Shipping Details" that has text input fields for the users name,
+                                address, city, and phone number. These input fields should have placeholders that show what they represent. -->
+                <div class="row">
+                    <div class="col text-center">
+                        <h5>Enter Shipping Details</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col bg-info text-mutext text-center">
-                    <form>
-                        <input name="name" placeholder="Name" />
-                        <input name="address" placeholder="Address" />
-                        <input name="city" placeholder="City" />
-                        <input name="phoneNumber" placeholder="Phone Number" />
-                    </form>
+                <div class="row">
+                    <div class="col text-mutext text-center">
+                        <form>
+                            <input name="name" placeholder="Name" />
+                            <input name="address" placeholder="Address" />
+                            <input name="city" placeholder="City" />
+                            <input name="phoneNumber" placeholder="Phone Number" />
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <!-- ##### Cart Summary ##### -->
-            <div class="row">
-                <div class="col bg-info text-center">
-                    <h5>Cart Summary</h5>
+
+                <!-- ##### Cart Summary ##### -->
+
+                <!-- rubric49 : The user should see a section showing the subtotal cost of all the items in the shopping cart, the shipping cost,
+                                the tax cost, and a total cost of all the items in the shipping cost. -->
+                <div class="row">
+                    <div class="col text-center">
+                        <h5>Cart Summary</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col bg-dark text-muted text-right">
-                    <h5>Subtotal :</h5>
+                <div class="row">
+                    <div class="col text-right">
+                        <h5>Subtotal :</h5>
+                    </div>
+                    <div class="col text-left">
+                        <h5>${{subtotal | number:'1.2-2'}}</h5>
+                    </div>
                 </div>
-                <div class="col bg-dark text-info text-left">
-                    <h5>$99.99</h5>
+                <div class="row">
+                    <div class="col text-right">
+                        <h5>Shipping :</h5>
+                    </div>
+                    <div class="col text-left">
+                        <h5>FREE</h5>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col bg-dark text-muted text-right">
-                    <h5>Shipping :</h5>
+                <div class="row">
+                    <div class="col text-right">
+                        <h5>Tax (10%) :</h5>
+                    </div>
+                    <div class="col text-left">
+                        <h5>${{tax | number:'1.2-2'}}</h5>
+                    </div>
                 </div>
-                <div class="col bg-dark text-info text-left">
-                    <h5>FREE</h5>
+                <div class="row">
+                    <div class="col text-right">
+                        <h5>Total :</h5>
+                    </div>
+                    <div class="col text-left">
+                        <h4>
+                            <span class="bg-danger text-warning">
+                                &nbsp;${{total | number:'1.2-2'}}&nbsp;
+                            </span>
+                        </h4>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col bg-dark text-muted text-right">
-                    <h5>Tax (10%) :</h5>
+
+                <!-- ##### Checkout ##### -->
+
+                <!-- rubric50 : The user should see a checkout button. -->
+                <div class="row">
+                    <div class="col text-center checkout">
+                        <!-- rubric51 : The checkout button should create an alert based on the users shipping details and total cost. -->
+                        <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+                    </div>
                 </div>
-                <div class="col bg-dark text-info text-left">
-                    <h5>$99.99</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col bg-dark text-muted text-right">
-                    <h5>Total :</h5>
-                </div>
-                <div class="col bg-dark text-left">
-                    <h4>
-                        <span class="bg-danger text-warning">
-                            &nbsp;$99.99&nbsp;
-                        </span>
-                    </h4>
-                </div>
-            </div>
-            <!-- ##### Checkout ##### -->
-            <div class="row">
-                <div class="col bg-dark text-center checkout">
-                    <button class="btn btn-primary">Checkout</button>
-                </div>
+
             </div>
         </div>
     </div>

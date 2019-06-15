@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AzureDataService } from '../../services/azure-data.service';
+import { CartService } from '../../services/cart.service';
 import { Item } from '../../model/item.model';
 
 @Component({
@@ -23,7 +24,8 @@ export class ProductComponent implements OnInit {
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
-    private dataSource: AzureDataService) { }
+    private dataSource: AzureDataService,
+    private cartService: CartService) { }
 
   ngOnInit() {
     //rubric46 : The product page is accessible at http://localhost:8080/#/product?name=productname
@@ -38,9 +40,9 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  // Adds a given quantity of product to the cart..
+  // Adds a given quantity of product to the cart.
   addToCart() {
-    alert(this.quantity);
+    this.cartService.addItem(this.selectedProduct.name, this.quantity);
   }
 
   // Goes to the back last page in navigation.

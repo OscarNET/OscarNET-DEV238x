@@ -6,6 +6,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AzureDataService } from '../../services/azure-data.service';
+import { CartService } from '../../services/cart.service';
 import { Category } from '../../model/category.model';
 import { Subcategory } from '../../model/subcategory.model';
 import { Item } from '../../model/item.model';
@@ -23,10 +24,16 @@ export class ShoppingComponent implements OnInit {
 
   constructor(
     private dataSource: AzureDataService,
+    private cartService: CartService,
     private router: Router) { }
 
   ngOnInit() {
     this.initializeTreeOfCategories();
+  }
+
+  // Adds one product to the cart.
+  addToCart(item: Item) {
+    this.cartService.addItem(item.name, 1);
   }
 
   // Navigates to a given Product for displaying its detail.

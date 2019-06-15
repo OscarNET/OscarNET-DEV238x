@@ -30,7 +30,7 @@
                         <div *ngFor="let item of selectedSubcategory.items" class="card bg-info">
                             <div class="card-body text-center">
                                 <!-- rubric22 : Each grid cell shall have the price of the product displayed -->
-                                <h4 class="bg-danger text-warning">${{item.price}}</h4>
+                                <h4 class="bg-danger text-warning">${{item.price | number:'1.2-2'}}</h4>
                                 <!-- rubric21 : Each grid cell shall have the name of the product displayed -->
                                 <!-- rubric32 : If the user clicks on a product name within a grid cell, they should be taken to a product page
                                                 that is populated with the details of the clicked product -->
@@ -42,7 +42,8 @@
                             <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}"
                                 (click)="displayProductDetail(item)" />
                             <!-- rubric24 : Each grid cell shall have a button labeled "Add" -->
-                            <a class="btn btn-primary addToCart" href="#" role="button">Add</a>
+                            <a class="btn btn-primary addToCart" href="javascript:void(0)" (click)="addToCart(item)"
+                                role="button">Add</a>
                         </div>
                     </div>
                 </div>

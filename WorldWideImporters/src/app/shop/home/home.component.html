@@ -38,7 +38,7 @@
                     <!-- rubric80 : Used jQuery or Angular for data binding -->
                     <div *ngFor="let item of carouselItems.slice(0,3)" class="card bg-info">
                         <div class="card-body text-center">
-                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h2 class="bg-danger text-warning">${{item.price | number:'1.2-2'}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
                         <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page
@@ -56,7 +56,7 @@
                     <!-- rubric80 : Used jQuery or Angular for data binding -->
                     <div *ngFor="let item of carouselItems.slice(3,6)" class="card bg-info">
                         <div class="card-body text-center">
-                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h2 class="bg-danger text-warning">${{item.price | number:'1.2-2'}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
                         <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page
@@ -74,7 +74,7 @@
                     <!-- rubric80 : Used jQuery or Angular for data binding -->
                     <div *ngFor="let item of carouselItems.slice(6,9)" class="card bg-info">
                         <div class="card-body text-center">
-                            <h2 class="bg-danger text-warning">${{item.price}}</h2>
+                            <h2 class="bg-danger text-warning">${{item.price | number:'1.2-2'}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
                         <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page

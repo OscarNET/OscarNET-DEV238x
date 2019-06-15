@@ -18,6 +18,7 @@ import { ShoppingComponent } from './shop/shopping/shopping.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AzureDataService } from './services/azure-data.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { AzureDataService } from './services/azure-data.service';
       { path: "**", redirectTo: "" },
     ], { useHash: true })
   ],
-  providers: [AzureDataService],
+  providers: [AzureDataService, CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
