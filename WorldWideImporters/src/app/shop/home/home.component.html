@@ -41,7 +41,10 @@
                             <h2 class="bg-danger text-warning">${{item.price}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
-                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                        <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page
+                                        that is populated with the details of the clicked product -->
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}"
+                            (click)="displayProductDetail(item)" />
                     </div>
                 </div>
             </div>
@@ -56,7 +59,10 @@
                             <h2 class="bg-danger text-warning">${{item.price}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
-                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                        <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page
+                                        that is populated with the details of the clicked product -->
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}"
+                            (click)="displayProductDetail(item)" />
                     </div>
                 </div>
             </div>
@@ -71,7 +77,10 @@
                             <h2 class="bg-danger text-warning">${{item.price}}</h2>
                             <h4 class="card-text">{{item.name}}</h4>
                         </div>
-                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                        <!-- rubric09 : If the user clicks on a product image, they should be taken to a product page
+                                        that is populated with the details of the clicked product -->
+                        <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}"
+                            (click)="displayProductDetail(item)" />
                     </div>
                 </div>
             </div>

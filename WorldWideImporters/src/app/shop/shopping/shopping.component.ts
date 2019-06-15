@@ -4,9 +4,11 @@
  *  Authored by Oscar Fernandez Gonzalez a.k.a. OscarNET
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AzureDataService } from '../../services/azure-data.service';
 import { Category } from '../../model/category.model';
-import { Subcategory } from 'src/app/model/subcategory.model';
+import { Subcategory } from '../../model/subcategory.model';
+import { Item } from '../../model/item.model';
 
 @Component({
   selector: 'app-shopping',
@@ -19,10 +21,21 @@ export class ShoppingComponent implements OnInit {
   selectedCategory: Category;
   selectedSubcategory: Subcategory
 
-  constructor(private dataSource: AzureDataService) { }
+  constructor(
+    private dataSource: AzureDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initializeTreeOfCategories();
+  }
+
+  // Navigates to a given Product for displaying its detail.
+  displayProductDetail(product: Item) {
+    // rubric31 : If the user clicks on a product image within a grid cell, they should be taken to a product page
+    //            that is populated with the details of the clicked product.
+    // rubric32 : If the user clicks on a product name within a grid cell, they should be taken to a product page
+    //            that is populated with the details of the clicked product.
+    this.router.navigate(['/product'], { queryParams: { name: product.name } });
   }
 
   // Processes the selected category.

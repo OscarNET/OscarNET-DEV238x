@@ -3,7 +3,12 @@
 }
 
 .card-img {
+    cursor: pointer;
     margin-bottom: 10px;
     height: 200px;
     vertical-align: middle;
+}
+
+.card-text {
+    cursor: pointer;
 }

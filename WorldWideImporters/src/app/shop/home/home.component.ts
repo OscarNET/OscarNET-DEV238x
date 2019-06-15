@@ -4,6 +4,7 @@
  *  Authored by Oscar Fernandez Gonzalez a.k.a. OscarNET
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AzureDataService } from '../../services/azure-data.service';
 import { Category } from '../../model/category.model';
 import { Item } from '../../model/item.model';
@@ -17,10 +18,19 @@ export class HomeComponent implements OnInit {
 
   carouselItems: Item[];
 
-  constructor(private dataSource: AzureDataService) { }
+  constructor(
+    private dataSource: AzureDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initializeCarousel();
+  }
+
+  // Navigates to a given Product for displaying its detail.
+  displayProductDetail(product: Item) {
+    // rubric09 : If the user clicks on a product image, they should be taken to a product page
+    //            that is populated with the details of the clicked product.
+    this.router.navigate(['/product'], { queryParams: { name: product.name } });
   }
 
   // Initializes the carousel with the retrieved products from Azure data service.
@@ -60,4 +70,5 @@ export class HomeComponent implements OnInit {
 
     this.carouselItems = bestRatingItems;
   }
+
 }

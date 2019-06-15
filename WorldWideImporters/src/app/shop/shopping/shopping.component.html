@@ -32,10 +32,15 @@
                                 <!-- rubric22 : Each grid cell shall have the price of the product displayed -->
                                 <h4 class="bg-danger text-warning">${{item.price}}</h4>
                                 <!-- rubric21 : Each grid cell shall have the name of the product displayed -->
-                                <h6 class="card-text">{{item.name}}</h6>
+                                <!-- rubric32 : If the user clicks on a product name within a grid cell, they should be taken to a product page
+                                                that is populated with the details of the clicked product -->
+                                <h6 class="card-text" (click)="displayProductDetail(item)">{{item.name}}</h6>
                             </div>
                             <!-- rubric23 : Each grid cell shall have an image of the product displayed -->
-                            <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}">
+                            <!-- rubric31 : If the user clicks on a product image within a grid cell, they should be taken to a product page
+                                            that is populated with the details of the clicked product -->
+                            <img class="card-img d-block img-fluid" src="{{item.imagelink}}" alt="{{item.name}}"
+                                (click)="displayProductDetail(item)" />
                             <!-- rubric24 : Each grid cell shall have a button labeled "Add" -->
                             <a class="btn btn-primary addToCart" href="#" role="button">Add</a>
                         </div>
