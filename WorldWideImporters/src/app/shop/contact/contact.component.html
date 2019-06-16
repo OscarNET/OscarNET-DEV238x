@@ -1,0 +1,75 @@
+<div class="jumbotron bg-info">
+    <h1>World Wide Importers (Contact Us)</h1>
+    <!-- rubric58 : The user should see description that shows an email and phone number for the contacting the business. -->
+    <p>Please call us if you need any support regarding our products:&nbsp;&nbsp;<i
+            class="fas fa-phone-volume"></i>&nbsp;888-555-3333</p>
+    <p>Please email us your questions regarding our products:&nbsp;&nbsp;<i
+            class="fas fa-envelope-open-text"></i>&nbsp;contact@worldwideimporters.com</p>
+    <hr />
+    <p>Please fill in your details below and World Wide Importers will use the information provided for customer service
+        purposes.</p>
+    <div>
+        <!-- rubric57 : The user should see a form with text input fields for name and email, a dropdown list for subject,
+                        and a text area for a message. These fields should have placeholders to show what they represent. -->
+        <!-- rubric61 : The form should show validation errors if the form isn't filled out correctly and the send button is pressed. -->
+        <form #ContactForm="ngForm" novalidate>
+            <p>Name:
+                <input class="ng-pristine ng-invalid ng-touched" type="text" name="name" placeholder="Name"
+                    [(ngModel)]="contactModel.name" required minlength="5" maxlength="50" pattern="^[A-Za-z ]+$" />
+            </p>
+            <p>E-mail:
+                <input class="ng-pristine ng-invalid ng-touched" type="text" name="email" placeholder="E-Mail"
+                    [(ngModel)]="contactModel.email" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
+            </p>
+            <p>Subject:
+                <select #Subject [value]="contactModel.subject" (change)="changeSubject(Subject.value)">
+                    <option value="Queries">Queries</option>
+                    <option value="Faults">Faults</option>
+                    <option value="Complaints">Complaints</option>
+                    <option value="Recommendations">Recommendations</option>
+                    <option value="Privacy">Privacy</option>
+                </select>
+            </p>
+            <p>Message (25-500 characters):</p>
+            <textarea class="ng-pristine ng-invalid ng-touched" type="text" name="message" placeholder="Message"
+                [(ngModel)]="contactModel.message" required minlength="25" maxlength="500"></textarea>
+        </form>
+    </div>
+
+    <p>
+        <!-- rubric59 : The user should see a button labeled "Send". -->
+        <button class="btn btn-primary" [disabled]="!ContactForm.valid" data-toggle="modal"
+            data-target=".contact-modal">Send</button>
+    </p>
+</div>
+
+<!-- ##### Contact Modal ##### -->
+
+<!-- rubric60 : The send button should create an alert based on the message sent. -->
+<div class="modal-bg">
+    <div class="dialog">
+        <div class="modal fade contact-modal" focus-group focus-group-head="loop" focus-group-tail="loop"
+            focus-stacktabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-info">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Contact Message Details</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        NAME: {{contactModel.name}}<br />
+                        EMAIL: {{contactModel.email}}<br />
+                        SUBJECT: {{contactModel.subject}}<br />
+                        <hr />
+                        {{contactModel.message}}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" focus-element="autofocus"
+                            data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

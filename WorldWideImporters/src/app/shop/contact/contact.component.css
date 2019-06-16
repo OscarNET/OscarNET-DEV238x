@@ -1,0 +1,18 @@
+input, select, textarea {
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+input.ng-invalid, textarea.ng-invalid {
+    border: 2px solid #ff0000
+}
+
+textarea {
+    height: 150px;
+    width: 600px;
+}
+
+p {
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
