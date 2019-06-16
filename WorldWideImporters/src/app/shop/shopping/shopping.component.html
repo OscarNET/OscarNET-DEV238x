@@ -21,10 +21,19 @@
                     <h5 *ngIf="selectedCategory && selectedSubcategory && selectedSubcategory.items.length != 0">
                         ({{totalSubcategoryItemsInStock}} of {{totalSubcategoryItems}} items)</h5>
                     <!-- rubric17 : The user shall see a toggle switch labeled "In Stock Only" in the controls bar -->
+                    <!-- rubric18 : The user shall see a dropdown list labeled "Sort by" that has the following options:
+                                    (None, Price, Alphabetical, Rating) in the controls bar -->
                     <form *ngIf="selectedCategory && selectedSubcategory && selectedSubcategory.items.length != 0">
                         In Stock Only
                         <input #InStockOnly type="checkbox" [checked]="showInStockOnly"
                             (change)="displayProducts(InStockOnly.checked)" />
+                        Sort by
+                        <select #SortBy (change)="sortBy(SortBy.value)">
+                            <option value="None">None</option>
+                            <option value="Price">Price</option>
+                            <option value="Alphabetical">Alphabetical</option>
+                            <option value="Rating">Rating</option>
+                        </select>
                     </form>
                 </div>
             </div>

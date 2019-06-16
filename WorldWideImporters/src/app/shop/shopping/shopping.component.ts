@@ -22,6 +22,7 @@ export class ShoppingComponent implements OnInit {
   selectedCategory: Category;
   selectedSubcategory: Subcategory;
   selectedItems: Item[] = [];
+  sortByValue: string = 'None';
   showInStockOnly: boolean = false;
   totalSubcategoryItems: number = 0;
   totalSubcategoryItemsInStock: number = 0;
@@ -46,15 +47,30 @@ export class ShoppingComponent implements OnInit {
     // rubric28 : The section of the controls bar that displays the number of items shown out of the total number of items
     //            in the selected category should update whenever a new subcategory is selected or whenever the "In Stock Only" switch is toggled.
     // rubric29 : If the "In Stock Only" toggle is checked, only items that are in stock should be shown in the products grid.
+    // rubric33 : Changing the selected sorting method should reorder the products in the grid.
     this.showInStockOnly = stockOnly;
 
+    let items: Item[] = [];
     if (stockOnly) {
-      this.selectedItems = this.selectedSubcategory.items.filter(itemInStock => itemInStock.stock != "0");
+      items = this.selectedSubcategory.items.filter(itemInStock => itemInStock.stock != "0");
     }
     else {
-      this.selectedItems = this.selectedSubcategory.items;
+      items = this.selectedSubcategory.items;
     }
 
+    switch (this.sortByValue) {
+      case "Alphabetical":
+        items = items.sort((a, b) => a.name > b.name ? 1 : -1);
+        break;
+      case "Price":
+        items = items.sort((a, b) => a.price > b.price ? 1 : -1);
+        break;
+      case "Rating":
+        items = items.sort((a, b) => a.rating > b.rating ? 1 : -1);
+        break;
+    }
+
+    this.selectedItems = items;
     this.totalSubcategoryItemsInStock = this.selectedItems.length;
     this.totalSubcategoryItems = this.selectedSubcategory.items.length;
   }
@@ -76,6 +92,12 @@ export class ShoppingComponent implements OnInit {
   // Processes the selected subcategory.
   processSelectedSubcategory(selectedSubcategory: Subcategory) {
     this.selectedSubcategory = selectedSubcategory;
+    this.displayProducts(this.showInStockOnly);
+  }
+
+  sortBy(fieldName: string) {
+    console.log(fieldName);
+    this.sortByValue = fieldName;
     this.displayProducts(this.showInStockOnly);
   }
 
