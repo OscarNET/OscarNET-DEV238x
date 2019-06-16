@@ -6,6 +6,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartItem } from '../../model/cartItem.model';
+import { Checkout } from '../../model/checkout.model';
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +15,7 @@ import { CartItem } from '../../model/cartItem.model';
 })
 export class CartComponent implements OnInit {
 
+  checkoutModel: Checkout = new Checkout('', '', '', '');
   cartItems: CartItem[];
   subtotal: number = 0;
   total: number = 0;
@@ -24,11 +26,6 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
     this.calculateAmounts();
-  }
-
-  // rubric51 : The checkout button should create an alert based on the users shipping details and total cost.
-  checkout() {
-    alert('SHIPPING DETAILS');
   }
 
   // Removes a given item (product) from the cart.

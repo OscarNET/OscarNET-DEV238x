@@ -67,11 +67,20 @@
                 </div>
                 <div class="row">
                     <div class="col text-mutext text-center">
-                        <form>
-                            <input name="name" placeholder="Name" />
-                            <input name="address" placeholder="Address" />
-                            <input name="city" placeholder="City" />
-                            <input name="phoneNumber" placeholder="Phone Number" />
+                        <!-- rubric52 : The form should show validation errors if the form isn't filled out
+                                        correctly and the checkout button is pressed. -->
+                        <form #CheckoutForm="ngForm" novalidate>
+                            <input class="ng-pristine ng-invalid ng-touched" type="text" name="name" placeholder="Name"
+                                [(ngModel)]="checkoutModel.name" required minlength="5" maxlength="50"
+                                pattern="^[A-Za-z ]+$" />
+                            <input class="ng-pristine ng-invalid ng-touched" type="text" name="address"
+                                placeholder="Address" [(ngModel)]="checkoutModel.address" required minlength="5"
+                                maxlength="50" />
+                            <input class="ng-pristine ng-invalid ng-touched" type="text" name="city" placeholder="City"
+                                [(ngModel)]="checkoutModel.city" required minlength="5" maxlength="50" />
+                            <input class="ng-pristine ng-invalid ng-touched" type="text" name="phoneNumber"
+                                placeholder="Phone (999-999-9999)" [(ngModel)]="checkoutModel.phoneNumber" required
+                                minlength="12" maxlength="12" pattern="^\d{3}-\d{3}-\d{4}$" />
                         </form>
                     </div>
                 </div>
@@ -128,10 +137,41 @@
                 <div class="row">
                     <div class="col text-center checkout">
                         <!-- rubric51 : The checkout button should create an alert based on the users shipping details and total cost. -->
-                        <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+                        <button class="btn btn-primary" [disabled]="!CheckoutForm.valid" data-toggle="modal"
+                            data-target=".checkout-modal">Checkout</button>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ##### Cehckout Modal ##### -->
+
+<!-- rubric51 : The checkout button should create an alert based on the users shipping details and total cost. -->
+<div class="modal-bg">
+    <div class="dialog">
+        <div class="modal fade checkout-modal" focus-group focus-group-head="loop" focus-group-tail="loop"
+            focus-stacktabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-info">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Shipping Details</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        NAME: {{checkoutModel.name}}<br />
+                        ADDRESS: {{checkoutModel.address}}<br />
+                        CITY: {{checkoutModel.city}}<br />
+                        PHONE: {{checkoutModel.phoneNumber}}<br />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" focus-element="autofocus"
+                            data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
