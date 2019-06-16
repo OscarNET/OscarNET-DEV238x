@@ -42,6 +42,7 @@ export class ProductComponent implements OnInit {
 
   // Adds a given quantity of product to the cart.
   addToCart() {
+    // rubric44 : Clicking the "Add" button should add the number of units specified in the "Qty" input field of the selected product to the shopping cart.
     this.cartService.addItem(this.selectedProduct.name, this.quantity);
   }
 
