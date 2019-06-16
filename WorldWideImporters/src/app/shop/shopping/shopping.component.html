@@ -19,7 +19,13 @@
                     <!-- rubric16 : The user shall see a section in the controls bar that displays the number of items shown
                                     out of the total number of items in the selected category -->
                     <h5 *ngIf="selectedCategory && selectedSubcategory && selectedSubcategory.items.length != 0">
-                        ({{selectedSubcategory.items.length}} items)</h5>
+                        ({{totalSubcategoryItemsInStock}} of {{totalSubcategoryItems}} items)</h5>
+                    <!-- rubric17 : The user shall see a toggle switch labeled "In Stock Only" in the controls bar -->
+                    <form *ngIf="selectedCategory && selectedSubcategory && selectedSubcategory.items.length != 0">
+                        In Stock Only
+                        <input #InStockOnly type="checkbox" [checked]="showInStockOnly"
+                            (change)="displayProducts(InStockOnly.checked)" />
+                    </form>
                 </div>
             </div>
             <div class="row">
@@ -27,7 +33,7 @@
                     <!-- rubric20 : The user shall see a grid that is populated with the products of the selected category -->
                     <div *ngIf="selectedCategory && selectedSubcategory" class="card-columns">
                         <!-- rubric26 : Clicking on a subcategory should repopulate the grid of products with items from the subcategory that was just clicked -->
-                        <div *ngFor="let item of selectedSubcategory.items" class="card bg-info">
+                        <div *ngFor="let item of selectedItems" class="card bg-info">
                             <div class="card-body text-center">
                                 <!-- rubric22 : Each grid cell shall have the price of the product displayed -->
                                 <h4 class="bg-danger text-warning">${{item.price | number:'1.2-2'}}</h4>

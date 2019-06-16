@@ -18,9 +18,13 @@ import { Item } from '../../model/item.model';
 })
 export class ShoppingComponent implements OnInit {
 
-  categories: Category[]
+  categories: Category[];
   selectedCategory: Category;
-  selectedSubcategory: Subcategory
+  selectedSubcategory: Subcategory;
+  selectedItems: Item[] = [];
+  showInStockOnly: boolean = false;
+  totalSubcategoryItems: number = 0;
+  totalSubcategoryItemsInStock: number = 0;
 
   constructor(
     private dataSource: AzureDataService,
@@ -33,7 +37,26 @@ export class ShoppingComponent implements OnInit {
 
   // Adds one product to the cart.
   addToCart(item: Item) {
+    // rubric30 : Clicking on the "Add" button inside a grid cell should add 1 unit of the associated product to the shopping cart.
     this.cartService.addItem(item.name, 1);
+  }
+
+  // Displaying the Products of the selected Category/Subcategory.
+  displayProducts(stockOnly: boolean) {
+    // rubric28 : The section of the controls bar that displays the number of items shown out of the total number of items
+    //            in the selected category should update whenever a new subcategory is selected or whenever the "In Stock Only" switch is toggled.
+    // rubric29 : If the "In Stock Only" toggle is checked, only items that are in stock should be shown in the products grid.
+    this.showInStockOnly = stockOnly;
+
+    if (stockOnly) {
+      this.selectedItems = this.selectedSubcategory.items.filter(itemInStock => itemInStock.stock != "0");
+    }
+    else {
+      this.selectedItems = this.selectedSubcategory.items;
+    }
+
+    this.totalSubcategoryItemsInStock = this.selectedItems.length;
+    this.totalSubcategoryItems = this.selectedSubcategory.items.length;
   }
 
   // Navigates to a given Product for displaying its detail.
@@ -53,6 +76,7 @@ export class ShoppingComponent implements OnInit {
   // Processes the selected subcategory.
   processSelectedSubcategory(selectedSubcategory: Subcategory) {
     this.selectedSubcategory = selectedSubcategory;
+    this.displayProducts(this.showInStockOnly);
   }
 
   // Initializes the tree component with the retrieved categories/subcategories from Azure data service.
@@ -61,6 +85,7 @@ export class ShoppingComponent implements OnInit {
       this.categories = categories
       this.selectedCategory = categories[0];
       this.selectedSubcategory = this.selectedCategory.subcategories[0];
+      this.displayProducts(this.showInStockOnly);
     }, (error) => {
       alert("The Categories couldn't be retrieved from Azure data service. Error: " + error.statusText);
     });
